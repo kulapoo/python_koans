@@ -57,7 +57,6 @@ class AboutExceptions(Koan):
 
         self.assertEqual('no damage done', result)
 
-
     def test_finally_clause(self):
         result = None
         try:
