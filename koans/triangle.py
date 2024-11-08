@@ -17,22 +17,8 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
-    # Check if all sides are greater than 0
-    if a <= 0 or b <= 0 or c <= 0:
-        raise TriangleError()
-
-    # Check if the sum of any two sides is greater than the third
-    if (a + b <= c) or (b + c <= a) or (a + c <= b):
-        raise TriangleError()
-
-    # If we get here, figure out what type of triangle it is
-    sides = sorted([a, b, c])
-    if sides[0] == sides[2]:
-        return 'equilateral'
-    elif sides[0] == sides[1] or sides[1] == sides[2]:
-        return 'isosceles'
-    else:
-        return 'scalene'
+    # DELETE 'PASS' AND WRITE THIS CODE
+    pass
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(Exception):
