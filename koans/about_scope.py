@@ -24,7 +24,7 @@ class AboutScope(Koan):
 
         rover = joes.Dog()
         self.assertEqual("jims dog", fido.identify())
-        self.assertEqual('joes dog', rover.identify())
+        self.assertEqual("joes dog", rover.identify())
 
         self.assertEqual(False, type(fido) == type(rover))
         self.assertEqual(False, jims.Dog == joes.Dog)
@@ -54,7 +54,7 @@ class AboutScope(Koan):
 
     def test_constants_are_assumed_by_convention_only(self):
         self.PI = "rhubarb"
-        self.assertEqual('rhubarb', self.PI)
+        self.assertEqual("rhubarb", self.PI)
         # There aren't any real constants in python. Its up to the developer
         # to keep to the convention and not modify them.
 
@@ -77,6 +77,7 @@ class AboutScope(Koan):
         global counter
         start = counter
         self.increment_using_global_counter()
+
         self.assertEqual(True, counter == start + 1)
 
     # ------------------------------------------------------------------
