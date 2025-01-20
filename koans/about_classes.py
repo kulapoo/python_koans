@@ -12,10 +12,10 @@ class AboutClasses(Koan):
         # NOTE: The .__name__ attribute will convert the class
         # into a string value.
         fido = self.Dog()
-        self.assertEqual("Dog", fido.__class__.__name__)
+        self.assertEqual(__, fido.__class__.__name__)
 
     def test_classes_have_docstrings(self):
-        self.assertRegex(self.Dog.__doc__, "Dogs need regular walkies. Never, ever let them drive.")
+        self.assertRegex(self.Dog.__doc__, __)
 
     # ------------------------------------------------------------------
 
@@ -28,12 +28,12 @@ class AboutClasses(Koan):
 
     def test_init_method_is_the_constructor(self):
         dog = self.Dog2()
-        self.assertEqual("Paul", dog._name)
+        self.assertEqual(__, dog._name)
 
     def test_private_attributes_are_not_really_private(self):
         dog = self.Dog2()
         dog.set_name("Fido")
-        self.assertEqual("Fido", dog._name)
+        self.assertEqual(__, dog._name)
         # The _ prefix in _name implies private ownership, but nothing is truly
         # private in Python.
 
@@ -41,11 +41,11 @@ class AboutClasses(Koan):
         fido = self.Dog2()
         fido.set_name("Fido")
 
-        self.assertEqual("Fido", getattr(fido, "_name"))
+        self.assertEqual(__, getattr(fido, "_name"))
         # getattr(), setattr() and delattr() are a way of accessing attributes
         # by method rather than through assignment operators
 
-        self.assertEqual("Fido", fido.__dict__["_name"])
+        self.assertEqual(__, fido.__dict__["_name"])
         # Yes, this works here, but don't rely on the __dict__ object! Some
         # class implementations use optimization which result in __dict__ not
         # showing everything.
@@ -69,10 +69,10 @@ class AboutClasses(Koan):
         fido.set_name("Fido")
 
         # access as method
-        self.assertEqual("Fido", fido.get_name())
+        self.assertEqual(__, fido.get_name())
 
         # access as property
-        self.assertEqual("Fido", fido.name)
+        self.assertEqual(__, fido.name)
 
     # ------------------------------------------------------------------
 
@@ -92,7 +92,7 @@ class AboutClasses(Koan):
         fido = self.Dog4()
 
         fido.name = "Fido"
-        self.assertEqual("Fido", fido.name)
+        self.assertEqual(__, fido.name)
 
     # ------------------------------------------------------------------
 
@@ -106,10 +106,10 @@ class AboutClasses(Koan):
 
     def test_init_provides_initial_values_for_instance_variables(self):
         fido = self.Dog5("Fido")
-        self.assertEqual("Fido", fido.name)
+        self.assertEqual(__, fido.name)
 
     def test_args_must_match_init(self):
-        with self.assertRaises(TypeError):
+        with self.assertRaises(___):
             self.Dog5()
 
         # THINK ABOUT IT:
@@ -119,7 +119,7 @@ class AboutClasses(Koan):
         fido = self.Dog5("Fido")
         rover = self.Dog5("Rover")
 
-        self.assertEqual(False, rover.name == fido.name)
+        self.assertEqual(__, rover.name == fido.name)
 
     # ------------------------------------------------------------------
 
@@ -134,14 +134,15 @@ class AboutClasses(Koan):
             #
             # Implement this!
             #
-            return self._name
+            return __
 
         def __repr__(self):
             return "<Dog named '" + self._name + "'>"
 
     def test_inside_a_method_self_refers_to_the_containing_object(self):
         fido = self.Dog6("Fido")
-        self.assertEqual(fido, fido.get_self())  # Not a string!
+
+        self.assertEqual(__, fido.get_self())  # Not a string!
 
     def test_str_provides_a_string_version_of_the_object(self):
         fido = self.Dog6("Fido")
@@ -151,17 +152,17 @@ class AboutClasses(Koan):
     def test_str_is_used_explicitly_in_string_interpolation(self):
         fido = self.Dog6("Fido")
 
-        self.assertEqual("My dog is Fido", "My dog is " + str(fido))
+        self.assertEqual(__, "My dog is " + str(fido))
 
     def test_repr_provides_a_more_complete_string_version(self):
         fido = self.Dog6("Fido")
-        self.assertEqual("<Dog named 'Fido'>", repr(fido))
+        self.assertEqual(__, repr(fido))
 
     def test_all_objects_support_str_and_repr(self):
         seq = [1, 2, 3]
 
-        self.assertEqual("[1, 2, 3]", str(seq))
-        self.assertEqual("[1, 2, 3]", repr(seq))
+        self.assertEqual(__, str(seq))
+        self.assertEqual(__, repr(seq))
 
-        self.assertEqual('STRING', str("STRING"))
-        self.assertEqual("'STRING'", repr("STRING"))
+        self.assertEqual(__, str("STRING"))
+        self.assertEqual(__, repr("STRING"))
